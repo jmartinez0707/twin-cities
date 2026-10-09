@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Twin Cities Animal Rescue</title>
+</head>
+
+<body>
+    <header>
+
+        <img src="media/Animal Shelter_c/rescue-logo_c.png" alt="Twin Cities Animal Rescue logo" width="800" height="600"
+        <nav aria-label="Primary Navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" aria-current="page">Contact Us</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </nav>
+      
+    </header>
+
+    <main>
+
+        <h1>Get in Contact with us</h1>
+        <p></p>
+
+        <section aria-label="interest-form">
+            <h2 id="interest-form">Foster, Volunteer, Donate Form</h2>
+            <p>Fields marked with an asterik (*) are required.</p>
+            <form action="interestform" method="post">
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <p>
+                        <label for="name">Full Name *</label><br>
+                        <input type="text" id="name" required minlength="1" maxlength="100" autocomplete="name">
+                    </p>
+                    <p>
+                        <label for="phone">Phone Number (eg. 123-456-7890)</label><br>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                        placeholder="123-456-7890" autocomplete="tel">
+                    </p>
+                    <p>
+                        <label for="email">Email Address *</label><br>
+                        <input type="emial" id="email" name="email" required autocomplete="email">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>How do you want to help?</legend>
+                    <p>
+                        <label for="interest">Interest Type *</label><br>
+                        <select id="interest" name="interest" required>
+                            <option value="">Select an option below:</option>
+                            <option value="foster">Foster</option>
+                            <option value="volunteer">Volunteer</option>
+                            <option value="adopt">Adopt</option>
+                            <option value="donate">Donate</option>
+                        </select>
+                    </p>
+                </fieldset>
+            </form>
+
+        </section>
+
+        <section aria-label="service-area">
+
+            <h2 id="service-area">Service Area</h2>
+            <p>We're serving areas in the greater New York and New Jersey areas.</p>
+
+        </section>
+
+        <section aria-label="office-hours">
+
+            <h2 id="office-hours">Office Hours</h2>
+            <ul>
+                <li>Monday: 9:00 a.m. - 5:00 p.m.</li>
+                <li>Tuesday: 9:00 a.m. - 5:00 p.m.</li>
+                <li>Wednesday: 9:00 a.m. - 5:00 p.m.</li>
+                <li>Thursday: 9:00 a.m. - 5:00 p.m.</li>
+                <li>Friday: 9:00 a.m. - 5:00 p.m.</li>
+                <li>Saturday: 10:00 a.m. - 2:00 p.m.</li>
+                <li>Sunday: Closed</li>
+            </ul>
+            
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>Twin Cities Animal Rescue. Your local community nonprofit organization.</p>
+        <nav aria-label="Footer Navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </nav>
+        
+    </footer>
+</body>
+</html>
