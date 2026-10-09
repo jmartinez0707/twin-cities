@@ -1,0 +1,118 @@
+body {
+    margin: 1;
+    font-family: "Fira Sans", Arial, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    background-color: beige;
+    color: black;
+}
+
+h1, h2, h3{
+    font-family: "IBM Plex Serif", Arial, sans-serif;
+    line-height: 1.25;
+    margin: 0 0 2;
+    color: rgb(17, 168, 123);
+}
+
+h1{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+h2{
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+h3{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+header{
+    background-color: beige;
+    border-bottom: 1px solid rgb(17, 168, 123);
+}
+
+.header-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0;
+    padding: 1rem;
+}
+
+.brand{
+    display: flex;
+    align-items: center;
+    gap: 1;
+    color: black;
+}
+
+.brand img{
+    align-items: center;
+    width: 120px;
+    height: auto;
+}
+
+.brand-name{
+    align-items: center;
+    font-family: "Fira Sans", Arial, sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin: 1;
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1;
+    padding: 1;
+    gap: 1rem;
+}
+
+main{
+    padding: 1;
+    background-color: beige;
+    border: rgb(17, 168, 123);
+}
+
+.hero{
+    background-color: rgb(17, 168, 123);
+    color: beige;
+    padding: 1rem;
+}
+
+.hero h1{
+    color: beige;
+}
+
+section{
+    padding: 1;
+    background-color: beige;
+    border: rgb(17, 168, 123);
+}
+
+fieldset{
+    flex: 1 1 0;
+    margin: 1;
+    padding: 1rem;
+    border: 1px;
+}
+
+footer{
+    background-color: rgb(17, 168, 123);
+    color: beige;
+}
+
+.footer-inner{
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: 1;
+    padding: 1rem;
+}
+
+footer nav a{
+    display: flex;
+    padding: 1rem;
+}
