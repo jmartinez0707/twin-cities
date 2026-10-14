@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css"
+    <link rel="stylesheet" href="css/styles.css">
 
 </head>
 
@@ -41,21 +41,28 @@
         <section aria-label="interest-form">
             <h2 id="interest-form">Foster, Volunteer, Donate Form</h2>
             <p>Fields marked with an asterik (*) are required.</p>
-            <form action="interestform" method="post">
+            <div class="saved-panel" id="saved-roles-note" role="status" hidden>
+                <p id="saved-roles-text"></p>
+                <p><a href="services.html">Change saved roles</a></p>
+            </div>
+            <form action="#" method="post" id="contact-form">
                 <fieldset>
                     <legend>Contact Information</legend>
                     <p>
                         <label for="name">Full Name *</label><br>
-                        <input type="text" id="name" required minlength="1" maxlength="100" autocomplete="name">
+                        <input type="text" id="name" name="name" required minlength="2" maxlength="100" autocomplete="name" aria-describedby="name-error"><br>
+                        <span class="error-message" id="name-error"></span>
                     </p>
                     <p>
                         <label for="phone">Phone Number (eg. 123-456-7890)</label><br>
                         <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
-                        placeholder="123-456-7890" autocomplete="tel">
+                        placeholder="123-456-7890" autocomplete="tel" aria-describedby="phone-error"><br>
+                        <span class="error-message" id="phone-error"></span>
                     </p>
                     <p>
                         <label for="email">Email Address *</label><br>
-                        <input type="emial" id="email" name="email" required autocomplete="email">
+                        <input type="email" id="email" name="email" required autocomplete="email" aria-describedby="email-error"><br>
+                        <span class="error-message" id="email-error"></span>
                     </p>
                 </fieldset>
 
@@ -63,19 +70,21 @@
                     <legend>How do you want to help?</legend>
                     <p>
                         <label for="interest">Interest Type *</label><br>
-                        <select id="interest" name="interest" required>
+                        <select id="interest" name="interest" required aria-describedby="interest-error">
                             <option value="">Select an option below:</option>
                             <option value="foster">Foster</option>
                             <option value="volunteer">Volunteer</option>
                             <option value="adopt">Adopt</option>
                             <option value="donate">Donate</option>
-                        </select>
+                        </select><br>
+                        <span class="error-message" id="interest-error"></span>
+                    </p>    
 
                         <p class="form-actions">
                             <button type="submit">Submit</button>
                             <button type="reset">Clear</button>
                         </p>
-                    </p>
+                    <p class="form-status" id="form-status" role="status" tabindex="-1" hidden></p>
                 </fieldset>
             </form>
 
@@ -120,5 +129,7 @@
         </div>
         
     </footer>
+    <script src="js/formvalidation.js"></script>
+    <script src="js/interest.js"></script>
 </body>
 </html>
