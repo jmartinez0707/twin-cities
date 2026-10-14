@@ -4,7 +4,7 @@ const storedKeys = {
 };
 
 const preferenceLabel = {
-    both: "Cats and Dogs",
+    all: "Cats and Dogs",
     cats: "Cats",
     dogs: "Dogs"
 };
@@ -46,7 +46,7 @@ function loadFromStorage(key, fallback){
         if (raw){
             return JSON.parse(raw);
         } else{
-            return fallback
+            return fallback;
         }
     } catch(error){
         return fallback;
@@ -71,22 +71,13 @@ function filterRoles(preference){
     });
 }
 
-
-
-
-
-
-
-
-
-
 function createRoleElement(role){
     const wrapper = document.createElement("div");
     const heading = document.createElement("h3");
     const description = document.createElement("p");
 
     heading.textContent = role.title;
-    description.textContent = role.description
+    description.textContent = role.description;
 
     wrapper.append(heading, description);
     return wrapper;
@@ -106,7 +97,6 @@ function renderRoles(preference){
     }
 }
 
-
 function handleRoleFilterChange(event){
     const preference = event.target.value;
     saveToStorage(storedKeys.preference, preference);
@@ -123,13 +113,8 @@ function initRoleFilter(){
     select.addEventListener("change", handleRoleFilterChange);
 }
 
-
-
-
-
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
-
 
 const fieldValidators = {
     name: function(value){
@@ -140,7 +125,7 @@ const fieldValidators = {
     },
     phone: function(value){
         if (value.trim() === "") return "";
-        if (!this.phonePattern.test(value.trim())) return "Use the format XXX-XXX-XXXX.";
+        if (!phonePattern.test(value.trim())) return "Use the format XXX-XXX-XXXX.";
         return "";
     },
     email: function(value){
@@ -209,8 +194,6 @@ function validateForm(form){
     return firstInvalid === null;
 }
 
-
-
 function saveContactInfo(form){
     saveToStorage(storedKeys.contact, {
         name: form.querySelector("#name").value.trim(),
@@ -246,41 +229,46 @@ function handleSubmit(event){
     const status = getStatusElement(form);
 
     if (!validateForm(form)){
+        status.hidden = false;
         status.textContent = "Please fix highlighed fields.";
-        status.className = "form-status error";
+        status.className = "form-status-error";
         return;
     }
 
     saveContactInfo(form);
     const name = form.querySelector("#name").value.trim();
+    status.hidden = false;
     status.textContent = "Thank you " + name + "! We will reach out shortly.";
-    status.className = "form-status success";
+    status.className = "form-status-success";
 }
-
 
 function handleReset(event){
     const form = event.target;
     form.querySelectorAll(".invalid").forEach(clearError);
-    getStatusElement(form).textContent = "";
+    const status = getStatusElement(form);
+    status.textContent ="";
+    status.hidden = true;
+}
+
+function showSavedPreference(){
+    const note = document.getElementById("saved-roles-note");
+    const text = document.getElementById("saved-roles-text");
+    if (!note || !text) return;
+
+    const saved = loadFromStorage(storedKeys.preference, null);
+    if (!saved || !preferenceLabel[saved]) return;
+
+    text.textContent = "Your saved preference:" + preferenceLabel[saved] + ".";
+    note.hidden = false;
 }
 
 function initContactForm(){
     const form = document.querySelector("form");
-    const animalPreference = document.getElementById("animal-preference");
     if (!form) return;
 
     form.setAttribute("novalidate", "");
-
     prefillContactInfo(form);
-
-
-    if (animalPreference){
-        animalPreference.value = getSavedPreference();
-        animalPreference.addEventListener("change", function (){
-            saveToStorage(storedKeys.preference, animalPreference.value);
-        });
-    }
-
+    showSavedPreference();
 
     Object.keys(fieldValidators).forEach(function (id){
         const field = form.querySelector("#" + id);

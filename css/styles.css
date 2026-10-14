@@ -1,5 +1,5 @@
 body {
-    margin: 1;
+    margin: 0;
     font-family: "Fira Sans", Arial, sans-serif;
     font-size: 1.1rem;
     line-height: 1.5;
@@ -10,7 +10,7 @@ body {
 h1, h2, h3{
     font-family: "IBM Plex Serif", Arial, sans-serif;
     line-height: 1.25;
-    margin: 0 0 2;
+    margin: 0 0 2rem;
     color: #11a87b;
 }
 
@@ -44,22 +44,20 @@ header{
 .brand{
     display: flex;
     align-items: center;
-    gap: 1;
+    gap: 1rem;
     color: black;
 }
 
 .brand img{
-    align-items: center;
     width: 120px;
     height: auto;
 }
 
 .brand-name{
-    align-items: center;
     font-family: "Fira Sans", Arial, sans-serif;
     font-weight: 900;
     font-size: 2.5rem;
-    margin: 1;
+    margin: 0;
 }
 
 nav a{
@@ -95,16 +93,15 @@ main{
 }
 
 section{
-    padding: 1;
+    padding: 1rem;
     background-color: beige;
     border: rgb(17, 168, 123);
 }
 
 fieldset{
-    flex: 1 1 0;
-    margin: 1;
+    margin: 1rem;
     padding: 1rem;
-    border: 1px;
+    border: 1px solid rgb(17, 168, 123);
 }
 
 footer{
@@ -116,7 +113,7 @@ footer{
     display: flex;
     flex-direction: column;
     max-width: 1100px;
-    margin: 1;
+    margin: 0 auto;
     padding: 1rem;
 }
 
@@ -127,35 +124,16 @@ footer nav a{
 
 @media(min-width: 768px){
     body{font-size: 1rem;}
-    h1{font-size: 1.5rem;}
-    h2{font-size: 1.25rem;}
-    h3{font-size: 1.125rem;}
     .header-inner{flex-direction: row;}
     .brand img{width: 70px;}
     .brand-name{font-size: 1.125rem;}
-    main{gap: 2rem; padding: 2rem;}
+    main{padding: 2rem;}
     .footer-inner{flex-direction: row; flex-wrap: wrap; align-items: center;
     justify-content: space-between; padding: 2rem;}
 }
 
 [hidden]{
     display: none !important;
-}
-
-.save-role{
-    margin: 1 rem;
-    padding: 1rem;
-    background-color: transparent;
-    color: black;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.save-role:hover{background-color: rgb(17, 168, 123);}
-
-.save-role[aria-pressed="true"]{
-    background-color: rgb(17, 168, 123);
-    color: black;
 }
 
 .saved-panel{
@@ -183,7 +161,7 @@ footer nav a{
 .error-message{
     display: block;
     color: red;
-    font-weight: 700;;
+    font-weight: 700;
 }
 
 .error-message:empty{display: none;}
@@ -198,9 +176,23 @@ select.invalid{border: 2px solid red;}
     font-weight: 500;
 }
 
+.form-status-success{
+    border-color: rgb(17, 168, 123);
+    color: black;
+}
+
 .form-status-error{
     border-color: red;
     color: red;
+}
+
+.button{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: beige;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 img,
